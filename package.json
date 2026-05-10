@@ -2,6 +2,7 @@
   "name": "rohan-mandi-portfolio",
   "version": "1.0.0",
   "private": true,
+  "type": "module",
   "description": "Personal portfolio of Rohan Mandi — Software Engineering @ Western",
   "scripts": {
     "install:all": "npm install && npm --prefix server install && npm --prefix client install",
