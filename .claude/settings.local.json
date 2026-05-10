@@ -1,0 +1,10 @@
+{
+  "permissions": {
+    "allow": [
+      "PowerShell($path = \"C:\\\\Users\\\\rohan\\\\OneDrive - The University of Western Ontario\\\\Career\\\\Portfolio\\\\images\"; \\(Get-ChildItem -LiteralPath $path -Force | Measure-Object\\).Count; Get-ChildItem -LiteralPath $path)",
+      "PowerShell(npm --version)",
+      "PowerShell(node --version)",
+      "PowerShell($path = \"C:\\\\Users\\\\rohan\\\\OneDrive - The University of Western Ontario\\\\Career\\\\Portfolio\\\\images\\\\projects\"; Test-Path -LiteralPath $path; Get-ChildItem -LiteralPath $path -Recurse -ErrorAction SilentlyContinue | ForEach-Object { $_.FullName })"
+    ]
+  }
+}
