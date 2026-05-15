@@ -86,14 +86,34 @@ li { margin: 0.15rem 0; }
   position: sticky;
   top: 0;
   z-index: 50;
-  transition: background 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
-  border-bottom: 1px solid transparent;
+  isolation: isolate;
 }
-.nav--scrolled {
-  background: rgba(14, 10, 26, 0.78);
+.nav::before {
+  content: "";
+  position: absolute;
+  inset: 0 0 -2rem 0;
+  z-index: -1;
+  pointer-events: none;
+  background: linear-gradient(
+    180deg,
+    rgba(14, 10, 26, 0.55) 0%,
+    rgba(14, 10, 26, 0.22) 55%,
+    rgba(14, 10, 26, 0) 100%
+  );
+  -webkit-mask-image: linear-gradient(180deg, #000 0%, #000 65%, transparent 100%);
+  mask-image: linear-gradient(180deg, #000 0%, #000 65%, transparent 100%);
+  transition: background 0.35s ease, backdrop-filter 0.35s ease;
+}
+.nav--scrolled::before {
+  background: linear-gradient(
+    180deg,
+    rgba(14, 10, 26, 0.92) 0%,
+    rgba(14, 10, 26, 0.78) 50%,
+    rgba(14, 10, 26, 0.35) 85%,
+    rgba(14, 10, 26, 0) 100%
+  );
   backdrop-filter: saturate(140%) blur(14px);
   -webkit-backdrop-filter: saturate(140%) blur(14px);
-  border-bottom-color: var(--c-border);
 }
 .nav__inner {
   max-width: var(--container);
@@ -173,15 +193,15 @@ li { margin: 0.15rem 0; }
   inset: -2% -2%;
   background-size: cover;
   background-position: center 30%;
-  filter: saturate(105%) brightness(0.8);
+  filter: saturate(110%) brightness(1);
   transform: scale(1.04);
 }
 .hero__scrim {
   position: absolute;
   inset: 0;
   background:
-    radial-gradient(60% 80% at 35% 50%, rgba(14, 10, 26, 0.65), rgba(14, 10, 26, 0.96) 80%),
-    linear-gradient(180deg, rgba(14, 10, 26, 0.4) 0%, var(--c-bg) 95%);
+    radial-gradient(60% 80% at 35% 50%, rgba(14, 10, 26, 0.35), rgba(14, 10, 26, 0.7) 85%),
+    linear-gradient(180deg, rgba(14, 10, 26, 0.15) 0%, var(--c-bg) 98%);
 }
 .hero__inner {
   position: relative;
@@ -228,8 +248,8 @@ li { margin: 0.15rem 0; }
   color: transparent;
   font-style: italic;
   display: inline-block;
-  padding-right: 0.12em;
-  margin-right: -0.06em;
+  padding-right: 0.25em;
+  margin-right: -0.1em;
 }
 .hero__role {
   font-size: 1.25rem;
